@@ -55,34 +55,16 @@ public class MainActivity extends AppCompatActivity {
                     //verifico se o usuario e senha existem na tabela
                     boolean isCheckUser = controller.usuarioeSenha(user, pass);
 
-
-
-
-
-
-
-
-
-
                     //se nao existir envio uma mensagem de usuario nao cadastrado
                     if(!isCheckUser){
-                        Toast.makeText(MainActivity.this, "Usuario Ainda Nao Cadastrado", Toast.LENGTH_SHORT).show();
+                        mensagem("Usuario Ainda Nao Cadastrado");
                     }else{
                         //caso contrario mando ele para a pagina principal HomeActivity
                         Intent home = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(home);
-
                     }
-
-
-
-
-
-
-
-
                 }else{
-                    mensagem();
+                    mensagem("Preencha todos os campos para entrar");
                 }
             }
         });
@@ -101,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
         criar  = findViewById(R.id.sign_up);
     }
 
-    private void mensagem() {
-        Toast.makeText(MainActivity.this, "Voce tem que preencher todos os campos;", Toast.LENGTH_SHORT).show();
+    private void mensagem(String texto) {
+        Toast.makeText(MainActivity.this, texto, Toast.LENGTH_SHORT).show();
     }
 
     private boolean validaCampos() {
